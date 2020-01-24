@@ -1,17 +1,17 @@
-﻿using DDDCore.Infra.CrossCutting.Data;
+﻿using AM.Infra.CrossCutting.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using DDDCore.Infra.CrossCutting.Models;
+using AM.Infra.CrossCutting.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc;
-using DDDCore.Service.Configurations;
-using DDDCore.Infra.CrossCutting;
+using AM.Service.Configurations;
+using AM.Infra.CrossCutting;
 
-namespace DDDCore.Service
+namespace AM.Service
 {
   public class Startup
   {

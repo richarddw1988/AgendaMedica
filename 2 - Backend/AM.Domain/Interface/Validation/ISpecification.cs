@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDDCore.Domain.Interfaces.Validation
+namespace AM.Domain.Interfaces.Validation
 {
 	public interface ISpecification<in TEntity>
 	{

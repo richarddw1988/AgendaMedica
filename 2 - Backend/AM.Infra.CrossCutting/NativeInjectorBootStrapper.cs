@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DDDCore.Infra.CrossCutting
+namespace AM.Infra.CrossCutting
 {
   public class NativeInjectorBootStrapper
   {

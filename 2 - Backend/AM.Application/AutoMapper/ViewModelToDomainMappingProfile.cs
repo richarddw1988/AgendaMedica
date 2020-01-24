@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using DDDCore.App.ViewModel;
-using DDDCore.Domain.Models;
+using AM.App.ViewModel;
+using AM.Domain.Models;
 
-namespace DDDCore.App.AutoMapper
+namespace AM.App.AutoMapper
 {
     public class ViewModelToDomainMappingProfile : Profile
     {

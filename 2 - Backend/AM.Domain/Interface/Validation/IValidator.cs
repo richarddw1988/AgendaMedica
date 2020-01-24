@@ -1,6 +1,6 @@
-﻿using DDDCore.Domain.Validation;
+﻿using AM.Domain.Validation;
 
-namespace DDDCore.Domain.Interfaces.Validation
+namespace AM.Domain.Interfaces.Validation
 {
   public interface IValidator<in TEntity>
 	{

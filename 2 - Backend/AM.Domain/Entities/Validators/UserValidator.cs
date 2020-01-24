@@ -1,9 +1,9 @@
-﻿using DDDCore.Domain.Enum;
-using DDDCore.Domain.Models.Specs.User;
-using DDDCore.Domain.Validation;
+﻿using AM.Domain.Enum;
+using AM.Domain.Models.Specs.User;
+using AM.Domain.Validation;
 using TestePratico.Domain.Validation;
 
-namespace DDDCore.Domain.Models.Validators
+namespace AM.Domain.Models.Validators
 {
   public class UserValidator : Validator<UserEntity>
   {

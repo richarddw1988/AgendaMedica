@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace DDDCore.Domain.Interfaces
+namespace AM.Domain.Interfaces
 {
     public interface IUser
     {

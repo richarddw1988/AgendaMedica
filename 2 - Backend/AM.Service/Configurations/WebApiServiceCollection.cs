@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DDDCore.Service.Configurations
+namespace AM.Service.Configurations
 {
     public static class WebApiServiceCollectionExtensions
     {

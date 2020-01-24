@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using DDDCore.App.Services;
-using DDDCore.App.ViewModel;
-using DDDCore.Service.Interface;
+using AM.App.Services;
+using AM.App.ViewModel;
+using AM.Service.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DDDCore.Service.Controllers
+namespace AM.Service.Controllers
 {
   [Route("[controller]")]
   [ApiController]

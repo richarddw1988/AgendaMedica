@@ -8,16 +8,16 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.2-sdk-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["DDDCore.Service/DDDCore.Service.csproj", "DDDCore.Service/"]
-RUN dotnet restore "DDDCore.Service/DDDCore.Service.csproj"
+COPY ["AM.Service/AM.Service.csproj", "AM.Service/"]
+RUN dotnet restore "AM.Service/AM.Service.csproj"
 COPY . .
-WORKDIR "/src/DDDCore.Service"
-RUN dotnet build "DDDCore.Service.csproj" -c Release -o /app
+WORKDIR "/src/AM.Service"
+RUN dotnet build "AM.Service.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "DDDCore.Service.csproj" -c Release -o /app
+RUN dotnet publish "AM.Service.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "DDDCore.Service.dll"]
+ENTRYPOINT ["dotnet", "AM.Service.dll"]

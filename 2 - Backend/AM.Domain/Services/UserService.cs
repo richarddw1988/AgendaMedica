@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDCore.Domain.Services
+namespace AM.Domain.Services
 {
   public class UserService
   {

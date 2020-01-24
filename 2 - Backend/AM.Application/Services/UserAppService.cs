@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using DDDCore.App.ViewModel;
+using AM.App.ViewModel;
 using System;
 using AutoMapper.QueryableExtensions;
 using System.Linq;
-using DDDCore.Domain.Interface;
-using DDDCore.Domain.Models;
+using AM.Domain.Interface;
+using AM.Domain.Models;
 
-namespace DDDCore.App.Services
+namespace AM.App.Services
 {
   public class UserAppService
   {

@@ -1,11 +1,11 @@
-﻿using DDDCore.Domain.Models;
+﻿using AM.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDCore.Infra.Data.Mapping
+namespace AM.Infra.Data.Mapping
 {
     public class UserMap : IEntityTypeConfiguration<UserEntity>
     {

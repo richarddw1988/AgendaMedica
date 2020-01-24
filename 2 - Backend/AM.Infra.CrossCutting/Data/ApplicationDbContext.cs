@@ -1,10 +1,10 @@
-﻿using DDDCore.Infra.CrossCutting.Models;
+﻿using AM.Infra.CrossCutting.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-namespace DDDCore.Infra.CrossCutting.Data
+namespace AM.Infra.CrossCutting.Data
 {
   public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

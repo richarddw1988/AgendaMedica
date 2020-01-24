@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDCore.Domain.Enum
+namespace AM.Domain.Enum
 {
   public class CommandEnum
   {

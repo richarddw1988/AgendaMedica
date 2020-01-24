@@ -1,5 +1,5 @@
-﻿using DDDCore.Domain.Interfaces.Validation;
-using DDDCore.Domain.Validation;
+﻿using AM.Domain.Interfaces.Validation;
+using AM.Domain.Validation;
 using System.Collections.Generic;
 
 namespace TestePratico.Domain.Validation

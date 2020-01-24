@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace DDDCore.App.AutoMapper
+namespace AM.App.AutoMapper
 {
     public class AutoMapperConfig
     {

@@ -1,9 +1,9 @@
-﻿using DDDCore.Domain.Enum;
-using DDDCore.Domain.Interfaces.Validation;
-using DDDCore.Domain.Models.Validators;
-using DDDCore.Domain.Validation;
+﻿using AM.Domain.Enum;
+using AM.Domain.Interfaces.Validation;
+using AM.Domain.Models.Validators;
+using AM.Domain.Validation;
 
-namespace DDDCore.Domain.Models
+namespace AM.Domain.Models
 {
   public class UserEntity : Entity, IValidable
   {

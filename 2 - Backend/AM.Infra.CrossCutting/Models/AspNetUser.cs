@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
-using DDDCore.Domain.Interfaces;
+using AM.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 
-namespace DDDCore.Infra.CrossCutting.Models
+namespace AM.Infra.CrossCutting.Models
 {
     public class AspNetUser : IUser
     {

@@ -1,19 +1,19 @@
-﻿using DDDCore.Domain.Interface;
-using DDDCore.Infra.Data.Context;
+﻿using AM.Domain.Interface;
+using AM.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace DDDCore.Infra.Data.Repositories
+namespace AM.Infra.Data.Repositories
 {
   public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
   {
-    protected readonly SqlServerContext Db;
+    protected readonly DatabaseContext Db;
     protected readonly DbSet<TEntity> DbSet;
 
-    public BaseRepository(SqlServerContext context)
+    public BaseRepository(DatabaseContext context)
     {
       Db = context;
       DbSet = Db.Set<TEntity>();

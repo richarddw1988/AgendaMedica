@@ -1,13 +1,13 @@
-﻿using DDDCore.Domain.Models;
-using DDDCore.Infra.Data.Mapping;
+﻿using AM.Domain.Models;
+using AM.Infra.Data.Mapping;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDCore.Infra.Data.Context
+namespace AM.Infra.Data.Context
 {
-    public class SqlServerContext : DbContext
+    public class DatabaseContext : DbContext
     {
 
         public DbSet<UserEntity> User { get; set; }

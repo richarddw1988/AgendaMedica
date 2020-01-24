@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace DDDCore.Domain.Interface
+namespace AM.Domain.Interface
 {
   public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
   {

@@ -1,6 +1,6 @@
-﻿using DDDCore.Domain.Models;
+﻿using AM.Domain.Models;
 
-namespace DDDCore.Domain.Interface
+namespace AM.Domain.Interface
 {
   public interface IUserRepository : IBaseRepository<UserEntity>
   {

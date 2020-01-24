@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDCore.App.ViewModel
+namespace AM.App.ViewModel
 {
   public class UserModel
   {

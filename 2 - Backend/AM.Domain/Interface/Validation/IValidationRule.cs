@@ -1,4 +1,4 @@
-﻿namespace DDDCore.Domain.Interfaces.Validation
+﻿namespace AM.Domain.Interfaces.Validation
 {
   public interface IValidationRule<in TEntity>
 	{

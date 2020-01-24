@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DDDCore.Service.Interface
+namespace AM.Service.Interface
 {
   public interface IService<T> where T : class
   {

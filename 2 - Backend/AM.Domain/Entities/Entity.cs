@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDCore.Domain.Models
+namespace AM.Domain.Models
 {
     public abstract class Entity
     {

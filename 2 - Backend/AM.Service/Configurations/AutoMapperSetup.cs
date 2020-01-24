@@ -1,10 +1,10 @@
 ﻿using System;
 using AutoMapper;
-using DDDCore.App.AutoMapper;
-using DDDCore.Service;
+using AM.App.AutoMapper;
+using AM.Service;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DDDCore.Service.Configurations
+namespace AM.Service.Configurations
 {
   public static class AutoMapperSetup
   {

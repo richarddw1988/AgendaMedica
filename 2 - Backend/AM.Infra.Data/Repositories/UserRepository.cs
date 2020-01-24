@@ -1,22 +1,22 @@
-﻿using DDDCore.Domain.Models;
+﻿using AM.Domain.Models;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 using System.Data.Common;
 using System.Data;
-using DDDCore.Infra.Data.Context;
+using AM.Infra.Data.Context;
 
-namespace DDDCore.Infra.Data.Repositories
+namespace AM.Infra.Data.Repositories
 {
   public class UserRepository : BaseRepository<UserEntity>
   {
-    public UserRepository(SqlServerContext context) : base(context) { }
+    public UserRepository(DatabaseContext context) : base(context) { }
 
     public void Teste1()
     {
       string id = "valor";
 
-      using (var context = new Context.SqlServerContext())
+      using (var context = new Context.DatabaseContext())
       {
           var conn = context.Database.GetDbConnection();
 

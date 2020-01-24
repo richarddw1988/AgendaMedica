@@ -1,12 +1,12 @@
-﻿using DDDCore.Domain.Enum;
-using DDDCore.Domain.Interface;
-using DDDCore.Domain.Interfaces.Validation;
-using DDDCore.Domain.Validation;
+﻿using AM.Domain.Enum;
+using AM.Domain.Interface;
+using AM.Domain.Interfaces.Validation;
+using AM.Domain.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace DDDCore.Domain.Services
+namespace AM.Domain.Services
 {
   public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
   {

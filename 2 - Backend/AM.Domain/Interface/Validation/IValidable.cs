@@ -1,7 +1,7 @@
-﻿using DDDCore.Domain.Enum;
-using DDDCore.Domain.Validation;
+﻿using AM.Domain.Enum;
+using AM.Domain.Validation;
 
-namespace DDDCore.Domain.Interfaces.Validation
+namespace AM.Domain.Interfaces.Validation
 {
   public interface IValidable
 	{
