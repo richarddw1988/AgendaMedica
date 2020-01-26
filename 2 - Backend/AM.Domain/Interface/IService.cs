@@ -1,12 +1,10 @@
-﻿using AM.Domain.Validation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace AM.Domain.Interface
 {
-  public interface IBaseService<TEntity> : IDisposable where TEntity : class
+    public interface IService<TEntity> : IDisposable where TEntity : class
   {
 
     TEntity GetById(int id);
@@ -15,11 +13,11 @@ namespace AM.Domain.Interface
 
     IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> filter);
 
-    ValidationResult Add(TEntity obj);
+    void Add(TEntity obj);
 
-    ValidationResult Update(int id,TEntity obj);
+    void Update(int id,TEntity obj);
 
-    ValidationResult Remove(TEntity obj);
+    void Remove(TEntity obj);
 
     void SaveChanges();
   }

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace AM.Domain.Interface
 {
-  public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
+  public interface IRepository<TEntity> : IDisposable where TEntity : class
   {
     void Add(TEntity obj);
 

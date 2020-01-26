@@ -2,7 +2,7 @@
 
 namespace AM.Domain.Interface
 {
-  public interface IUserRepository : IBaseRepository<UserEntity>
+  public interface IUserRepository : IRepository<UserEntity>
   {
   }
 }

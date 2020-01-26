@@ -19,19 +19,6 @@ namespace AM.Service.Controllers
             _userAppService = userAppService;
         }
 
-        [HttpGet, Route("Teste/{id}")]
-        public IActionResult Teste(int id)
-        {
-            try
-            {
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex);
-            }
-        }
-
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

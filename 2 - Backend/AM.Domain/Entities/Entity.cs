@@ -1,49 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace AM.Domain.Models
 {
     public abstract class Entity
     {
-        [Key]
-        public int Id { get; protected set; }
-
-        public override bool Equals(object obj)
+        public Entity()
         {
-            var compareTo = obj as Entity;
-
-            if (ReferenceEquals(this, compareTo)) return true;
-            if (ReferenceEquals(null, compareTo)) return false;
-
-            return Id.Equals(compareTo.Id);
+            DataCriacao = DateTime.Now;
         }
 
-        public static bool operator ==(Entity a, Entity b)
+        public int Id { get; private set; }
+        public DateTime DataCriacao { get; private set; }
+        public DateTime DataAtualizacao { get; private set; }
+
+        public void ModifiedEntity()
         {
-            if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
-                return true;
-
-            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
-                return false;
-
-            return a.Equals(b);
-        }
-
-        public static bool operator !=(Entity a, Entity b)
-        {
-            return !(a == b);
-        }
-
-        public override int GetHashCode()
-        {
-            return (GetType().GetHashCode() * 907) + Id.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return GetType().Name + " [Id=" + Id + "]";
+            DataAtualizacao = DateTime.Now;
         }
     }
 }

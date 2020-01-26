@@ -9,9 +9,10 @@ using AM.Domain.Interface;
 
 namespace AM.Infra.Data.Repositories
 {
-  public class UserRepository : BaseRepository<UserEntity>, IUserRepository
+  public class UserRepository : Repository<UserEntity>, IUserRepository
     {
-    public UserRepository(DatabaseContext context) : base(context) { }
+
+        public UserRepository(AppDbContext context) : base(context) { }
 
     //public void Teste1()
     //{
