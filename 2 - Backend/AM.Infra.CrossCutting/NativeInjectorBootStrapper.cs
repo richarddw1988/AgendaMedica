@@ -1,5 +1,6 @@
 ﻿using AM.App.Services;
-using AM.Domain.Interface;
+using AM.Domain.Interface.Repository;
+using AM.Domain.Services;
 using AM.Infra.Data.Context;
 using AM.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -14,8 +15,10 @@ namespace AM.Infra.CrossCutting
             // ASP.NET HttpContext dependency
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ConsultaAppService>();
+            services.AddScoped<ConsultaService>();
             services.AddScoped<AppDbContext>();
             services.AddScoped<IConsultaRepository, ConsultaRepository>();
+            services.AddScoped<IPessoaRepository, PessoaRepository>();
         }
     }
 }

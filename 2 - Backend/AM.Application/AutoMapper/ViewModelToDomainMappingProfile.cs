@@ -8,8 +8,8 @@ namespace AM.App.AutoMapper
     {
         public ViewModelToDomainMappingProfile()
         {
-          CreateMap<ConsultaModel, ConsultaEntity>();
-          CreateMap<PessoaModel, PessoaEntity>();
+            CreateMap<ConsultaModel, ConsultaEntity>();
+            CreateMap<PessoaModel, PessoaEntity>();
         }
     }
 }

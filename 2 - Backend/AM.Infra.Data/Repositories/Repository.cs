@@ -1,4 +1,4 @@
-﻿using AM.Domain.Interface;
+﻿using AM.Domain.Interface.Repository;
 using AM.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -3,54 +3,55 @@ using AM.App.ViewModel;
 using System;
 using AutoMapper.QueryableExtensions;
 using System.Linq;
-using AM.Domain.Interface;
 using AM.Domain.Entities;
+using AM.Domain.Interface.Repository;
+using AM.Domain.Services;
 
 namespace AM.App.Services
 {
     public class ConsultaAppService
-  {
-    private readonly IMapper _mapper;
-    private readonly IConsultaRepository _userRepository;
-
-    public ConsultaAppService(IMapper mapper, IConsultaRepository userRepository)
     {
-      _mapper = mapper;
-      _userRepository = userRepository;
-    }
+        private readonly IMapper _mapper;
+        private readonly IConsultaRepository _consultaRepository;
+        private ConsultaService _consultaService;
 
-    public IQueryable<ConsultaModel> GetAll()
-    {
-      return _userRepository.GetAll().ProjectTo<ConsultaModel>(_mapper.ConfigurationProvider);
-    }
+        public ConsultaAppService(IMapper mapper, IConsultaRepository consultaRepository)
+        {
+            _mapper = mapper;
+            _consultaRepository = consultaRepository;
+        }
 
-    public ConsultaModel GetById(int id)
-    {
-      return _mapper.Map<ConsultaModel>(_userRepository.GetById(id));
-    }
+        public IQueryable<ConsultaModel> GetAll()
+        {
+            return _consultaRepository.GetAll().ProjectTo<ConsultaModel>(_mapper.ConfigurationProvider);
+        }
 
-    public void Insert(ConsultaModel userModel)
-    {
-      _userRepository.Add(_mapper.Map<ConsultaEntity>(userModel));
-      _userRepository.SaveChanges();
-    }
+        public ConsultaModel GetById(int id)
+        {
+            return _mapper.Map<ConsultaModel>(_consultaRepository.GetById(id));
+        }
 
-    public void Update(int id, ConsultaModel userModel)
-    {
-      _userRepository.Update(id, _mapper.Map<ConsultaEntity>(userModel));
-      _userRepository.SaveChanges();
-    }
+        public void Insert(ConsultaModel consultaModel)
+        {
+            _consultaService.CriarConsulta(_mapper.Map<ConsultaEntity>(consultaModel));
+        }
 
-    public void Remove(int id)
-    {
-      var obj = _userRepository.GetById(id);
-      _userRepository.Remove(obj);
-      _userRepository.SaveChanges();
-    }
+        public void Update(int id, ConsultaModel consultaModel)
+        {
+            _consultaRepository.Update(id, _mapper.Map<ConsultaEntity>(consultaModel));
+            _consultaRepository.SaveChanges();
+        }
 
-    public void Dispose()
-    {
-      GC.SuppressFinalize(this);
+        public void Remove(int id)
+        {
+            var obj = _consultaRepository.GetById(id);
+            _consultaRepository.Remove(obj);
+            _consultaRepository.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
     }
-  }
 }

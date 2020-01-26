@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AM.App.Services;
 using AM.App.ViewModel;
+using AM.Domain.Exceptions;
 using AM.Service.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -66,6 +67,10 @@ namespace AM.Service.Controllers
             {
                 _userAppService.Insert(obj);
                 return Ok();
+            }
+            catch(BusinessException ex)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, ex);
             }
             catch (Exception ex)
             {

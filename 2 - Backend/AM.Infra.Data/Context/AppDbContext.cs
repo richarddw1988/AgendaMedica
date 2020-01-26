@@ -1,9 +1,11 @@
 ﻿using AM.Domain.Entities;
-using AM.Infra.Data.Interfaces;
-using Microsoft.AspNetCore.Hosting;
+using AM.Infra.Data.Interfaces.Config;
+using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace AM.Infra.Data.Context
@@ -16,6 +18,8 @@ namespace AM.Infra.Data.Context
         {
             _env = env;
         }
+
+        public AppDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,7 +37,8 @@ namespace AM.Infra.Data.Context
         {
             // get the configuration from the app settings
             var config = new ConfigurationBuilder()
-                .SetBasePath(_env.ContentRootPath)
+                .SetBasePath(Directory.GetCurrentDirectory())
+                //.SetBasePath(_env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
                 .Build();
 

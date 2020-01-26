@@ -1,5 +1,5 @@
 ﻿using AM.Domain.Entities;
-using AM.Infra.Data.Interfaces;
+using AM.Infra.Data.Interfaces.Config;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
