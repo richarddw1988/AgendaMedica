@@ -14,7 +14,8 @@ namespace AM.Infra.Data.EntityConfigurations
                 .HasMaxLength(200)
                 .IsRequired();
 
-            builder.Property(x => x.DataNascimento).IsRequired();
+            builder.Property(x => x.DataNascimento)
+                .IsRequired();
         }
     }
 }

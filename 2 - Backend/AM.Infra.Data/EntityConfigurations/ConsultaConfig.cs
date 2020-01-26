@@ -10,9 +10,13 @@ namespace AM.Infra.Data.EntityConfigurations
         public void Configure(EntityTypeBuilder<ConsultaEntity> builder)
         {
             DefaultConfigs(builder, tableName: "CONSULTA");
-            builder.Property(x => x.DataHoraInicio).IsRequired();
-            builder.Property(x => x.DataHoraFinal).IsRequired();
-            builder.Property(x => x.Observacoes).HasDefaultValue();
+            builder.Property(x => x.DataHoraInicio)
+                .IsRequired();
+            builder.Property(x => x.DataHoraFinal)
+                .IsRequired();
+            builder.Property(x => x.Observacoes)
+                .HasMaxLength(500)
+                .HasDefaultValue();
             builder.HasMany<PessoaEntity>();
         }
     }
