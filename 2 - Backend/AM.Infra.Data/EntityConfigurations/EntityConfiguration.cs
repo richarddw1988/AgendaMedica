@@ -1,9 +1,6 @@
-﻿using AM.Domain.Models;
+﻿using AM.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AM.Infra.Data.EntityConfigurations
 {
@@ -13,7 +10,6 @@ namespace AM.Infra.Data.EntityConfigurations
         {
             builder.ToTable(tableName);
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.DataCriacao).IsRequired();
         }
     }
 }

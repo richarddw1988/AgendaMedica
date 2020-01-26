@@ -1,4 +1,4 @@
-﻿using AM.Domain.Models;
+﻿using AM.Domain.Entities;
 using AM.Infra.Data.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +41,7 @@ namespace AM.Infra.Data.Context
             optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         }
 
-        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<ConsultaEntity> Consulta { get; set; }
+        public DbSet<PessoaEntity> Pessoa { get; set; }
     }
 }

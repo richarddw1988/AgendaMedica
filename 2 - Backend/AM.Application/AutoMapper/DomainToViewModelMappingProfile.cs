@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using AM.App.ViewModel;
-using AM.Domain.Models;
+using AM.Domain.Entities;
 
 namespace AM.App.AutoMapper
 {
@@ -8,7 +8,8 @@ namespace AM.App.AutoMapper
     {
         public DomainToViewModelMappingProfile()
         {
-            CreateMap<UserEntity, UserModel>();
+            CreateMap<ConsultaEntity, ConsultaModel>();
+            CreateMap<PessoaEntity, ConsultaModel>();
         }
     }
 }

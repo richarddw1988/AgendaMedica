@@ -10,11 +10,11 @@ namespace AM.Service.Controllers
 {
     [Route("User")]
     [ApiController]
-    public class UserController : ControllerBase, IService<UserModel>
+    public class ConsultaController : ControllerBase, IService<ConsultaModel>
     {
-        private readonly UserAppService _userAppService;
+        private readonly ConsultaAppService _userAppService;
 
-        public UserController(UserAppService userAppService)
+        public ConsultaController(ConsultaAppService userAppService)
         {
             _userAppService = userAppService;
         }
@@ -34,7 +34,7 @@ namespace AM.Service.Controllers
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public ActionResult<UserModel> Get(int id)
+        public ActionResult<ConsultaModel> Get(int id)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace AM.Service.Controllers
         }
 
         [HttpGet(Name = "GetList")]
-        public ActionResult<IList<UserModel>> Get()
+        public ActionResult<IList<ConsultaModel>> Get()
         {
             try
             {
@@ -60,7 +60,7 @@ namespace AM.Service.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(UserModel obj)
+        public IActionResult Post(ConsultaModel obj)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace AM.Service.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, UserModel obj)
+        public IActionResult Put(int id, ConsultaModel obj)
         {
             try
             {
