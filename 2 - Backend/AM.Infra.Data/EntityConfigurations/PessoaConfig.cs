@@ -10,6 +10,7 @@ namespace AM.Infra.Data.EntityConfigurations
         public void Configure(EntityTypeBuilder<PessoaEntity> builder)
         {
             DefaultConfigs(builder, tableName: "PESSOA");
+            builder.HasKey(x => x.Id);
             builder.Property(x => x.Nome)
                 .HasMaxLength(200)
                 .IsRequired();

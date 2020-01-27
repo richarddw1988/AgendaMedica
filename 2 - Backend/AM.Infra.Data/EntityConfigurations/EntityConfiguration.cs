@@ -9,7 +9,6 @@ namespace AM.Infra.Data.EntityConfigurations
         public void DefaultConfigs(EntityTypeBuilder<TEntity> builder, string tableName)
         {
             builder.ToTable(tableName);
-            builder.HasKey(x => x.Id);
         }
     }
 }

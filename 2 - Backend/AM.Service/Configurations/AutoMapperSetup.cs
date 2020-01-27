@@ -1,7 +1,7 @@
 ﻿using System;
-using AutoMapper;
 using AM.App.AutoMapper;
-using AM.Service;
+using AutoMapper;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AM.Service.Configurations

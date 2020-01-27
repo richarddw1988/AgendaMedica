@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using AM.App.Services;
 using AM.App.ViewModel;
+using AM.Domain.Entities;
 using AM.Domain.Exceptions;
 using AM.Service.Interface;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AM.Service.Controllers
 {
-    [Route("User")]
+    [Route("Consulta")]
     [ApiController]
     public class ConsultaController : ControllerBase, IService<ConsultaModel>
     {
@@ -47,7 +49,7 @@ namespace AM.Service.Controllers
             }
         }
 
-        [HttpGet(Name = "GetList")]
+        [HttpGet(Name = "GetList"), Route("GetList")]
         public ActionResult<IList<ConsultaModel>> Get()
         {
             try
@@ -68,7 +70,7 @@ namespace AM.Service.Controllers
                 _userAppService.Insert(obj);
                 return Ok();
             }
-            catch(BusinessException ex)
+            catch (BusinessException ex)
             {
                 return StatusCode(StatusCodes.Status400BadRequest, ex);
             }

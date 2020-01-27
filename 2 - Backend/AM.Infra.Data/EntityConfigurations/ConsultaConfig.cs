@@ -10,6 +10,7 @@ namespace AM.Infra.Data.EntityConfigurations
         public void Configure(EntityTypeBuilder<ConsultaEntity> builder)
         {
             DefaultConfigs(builder, tableName: "CONSULTA");
+            builder.HasKey(x => x.Id);
             builder.Property(x => x.DataHoraInicio)
                 .IsRequired();
             builder.Property(x => x.DataHoraFinal)

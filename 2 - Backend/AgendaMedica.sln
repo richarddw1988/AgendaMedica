@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.App", "AM.Application\AM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{9B978571-A07C-4988-8AEB-4B03AAA188AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.UnitTests", "AM.Test\AM.UnitTests.csproj", "{D61FC019-F11E-4550-ABEF-6ABCFEAF2AE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.FunctionalTests", "AM.Test\AM.FunctionalTests.csproj", "{D61FC019-F11E-4550-ABEF-6ABCFEAF2AE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

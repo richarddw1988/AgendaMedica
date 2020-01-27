@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc;
 using AM.Service.Configurations;
 using AM.Infra.CrossCutting;
+using AutoMapper;
+using AM.App.AutoMapper;
 
 namespace AM.Service
 {
@@ -24,12 +24,6 @@ namespace AM.Service
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options =>
-            {
-                options.OutputFormatters.Remove(new XmlDataContractSerializerOutputFormatter());
-                options.UseCentralRoutePrefix(new RouteAttribute("api"));
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             services.AddAutoMapperSetup();
 
             //services.AddAuthorization(options =>
@@ -37,6 +31,12 @@ namespace AM.Service
             //  options.AddPolicy("CanWriteCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Write")));
             //  options.AddPolicy("CanRemoveCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Remove")));
             //});
+
+            services.AddMvc(options =>
+            {
+                options.OutputFormatters.Remove(new XmlDataContractSerializerOutputFormatter());
+                options.UseCentralRoutePrefix(new RouteAttribute("api"));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // .NET Native DI Abstraction
             RegisterServices(services);
