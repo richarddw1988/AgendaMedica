@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ViewModule } from './view/view.module';
-import { IUsuarioController } from '../core/interfaces/controllers/iusuario-controller';
-import { UsuarioControllerService } from './controllers/usuario/usuario-controller.service';
+
+import { IConsultaController } from '../core/interfaces/controllers/iconsulta-controller';
+import { ConsultaControllerService } from './controllers/consulta/consulta-controller.service';
 
 @NgModule({
   declarations: [],
@@ -13,7 +14,7 @@ import { UsuarioControllerService } from './controllers/usuario/usuario-controll
   ],
   exports: [ViewModule],
   providers: [
-    { provide: IUsuarioController, useClass: UsuarioControllerService },
+    { provide: IConsultaController, useClass: ConsultaControllerService },
   ]
 })
 export class PresentationModule { }

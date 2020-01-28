@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { IValidatorMessage } from './interfaces/message/ivalidator-message';
 import { ValidatorMessageService } from './message/validator-message.service';
-import { UsuarioValidatorService } from './validations/usuario/usuario-validator.service';
-import { IUsuarioValidator } from './interfaces/validations/iusuario-validator';
-import { UsuarioUseCase } from './usecases/usuario/usuario-use-case';
-import { IUsuarioUseCase } from './interfaces/usecases/iusuario-use-case';
+import { ConsultaValidatorService } from './validations/consulta/consulta-validator.service';
+import { ConsultaUseCase } from './usecases/consulta/consulta-use-case';
+import { IConsultaUseCase } from './interfaces/usecases/iconsulta-use-case';
+import { IConsultaValidator } from './interfaces/validations/iconsulta-validator';
 
 @NgModule({
   declarations: [],
@@ -16,8 +16,8 @@ import { IUsuarioUseCase } from './interfaces/usecases/iusuario-use-case';
   providers: [
     { provide: IValidatorMessage, useClass: ValidatorMessageService },
 
-    { provide: IUsuarioUseCase, useClass: UsuarioUseCase },
-    { provide: IUsuarioValidator, useClass: UsuarioValidatorService },
+    { provide: IConsultaUseCase, useClass: ConsultaUseCase },
+    { provide: IConsultaValidator, useClass: ConsultaValidatorService },
   ],
 })
 export class CoreModule { }

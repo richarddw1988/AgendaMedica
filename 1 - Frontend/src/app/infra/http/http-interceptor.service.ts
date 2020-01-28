@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { AuthService } from '../auth/auth.service';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Validator, ValidationError } from 'ts.validator.fluent/dist';
@@ -12,22 +11,11 @@ import { Validator, ValidationError } from 'ts.validator.fluent/dist';
 export class HttpInterceptorService implements HttpInterceptor {
 
   constructor(
-    private authService: AuthService,
     private router: Router
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.authService.credentials) {
-      req = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${this.authService.credentials.token}`
-        }
-      });
-
-      return next.handle(req).pipe(catchError(error => this.errorHandler(error)));
-    } else {
-      return next.handle(req).pipe(catchError(error => this.errorHandler(error)));
-    }
+    return next.handle(req).pipe(catchError(error => this.errorHandler(error)));
   }
 
   private errorHandler(response: HttpErrorResponse): Observable<HttpEvent<any>> {

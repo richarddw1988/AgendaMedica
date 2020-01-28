@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { IUsuarioRepository } from '../core/interfaces/repository/iusuario-repository';
-import { UsuarioRepository } from './repository/usuario/usuario-repository';
+import { IConsultaRepository } from '../core/interfaces/repository/iconsulta-repository';
+import { ConsultaRepository } from './repository/consulta/consulta-repository';
 
 @NgModule({
   declarations: [],
@@ -12,7 +12,7 @@ import { UsuarioRepository } from './repository/usuario/usuario-repository';
     HttpClientModule
   ],
   providers: [
-    { provide: IUsuarioRepository, useClass: UsuarioRepository },
+    { provide: IConsultaRepository, useClass: ConsultaRepository },
   ]
 })
 export class DataModule { }
