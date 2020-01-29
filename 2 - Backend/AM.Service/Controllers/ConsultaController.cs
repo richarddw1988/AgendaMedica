@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AM.App.Services;
 using AM.App.ViewModel;
-using AM.Domain.Entities;
 using AM.Domain.Exceptions;
 using AM.Service.Interface;
-using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -50,11 +49,11 @@ namespace AM.Service.Controllers
         }
 
         [HttpGet(Name = "GetList"), Route("GetList")]
-        public ActionResult<IList<ConsultaModel>> Get()
+        public ActionResult<IList<ConsultaModel>> GetAll()
         {
             try
             {
-                return Ok(_userAppService.GetAll());
+                return Ok(_userAppService.GetAll().ToList());
             }
             catch (Exception ex)
             {
@@ -87,6 +86,10 @@ namespace AM.Service.Controllers
             {
                 _userAppService.Update(id, obj);
                 return Ok();
+            }
+            catch (BusinessException ex)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, ex);
             }
             catch (Exception ex)
             {

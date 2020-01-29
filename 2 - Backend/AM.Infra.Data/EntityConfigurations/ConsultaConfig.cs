@@ -18,7 +18,7 @@ namespace AM.Infra.Data.EntityConfigurations
             builder.Property(x => x.Observacoes)
                 .HasMaxLength(500)
                 .HasDefaultValue();
-            builder.HasMany<PessoaEntity>();
+            builder.HasOne(x => x.Pessoa).WithMany(x => x.Consultas).HasForeignKey(x => x.IdPessoa);
         }
     }
 }

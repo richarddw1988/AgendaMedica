@@ -6,8 +6,8 @@ namespace AM.Service.Interface
 {
   public interface IService<T> where T : class
   {
-    [HttpPost]
-    IActionResult Post(T obj);
+    //[HttpPost]
+    //IActionResult Post(T obj);
 
     [HttpPut("{id}")]
     IActionResult Put(int id, T obj);
@@ -18,7 +18,7 @@ namespace AM.Service.Interface
     [HttpGet("{id}", Name = "Get")]
     ActionResult<T> Get(int id);
 
-    [HttpGet(Name = "Get")]
-    ActionResult<IList<T>> Get();
+    [HttpGet(Name = "Get"), Route("GetList")]
+    ActionResult<IList<T>> GetAll();
   }
 }

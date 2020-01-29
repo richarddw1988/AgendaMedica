@@ -5,5 +5,5 @@ export class IConsultaResponseEntity {
   dataHoraInicio?: Date = null;
   dataHoraFinal?: Date = null;
   observacoes?: string = null;
-  paciente?: IPessoaResponseEntity = null;
+  pessoa?: IPessoaResponseEntity = null;
 }

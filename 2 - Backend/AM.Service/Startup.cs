@@ -8,6 +8,7 @@ using AM.Service.Configurations;
 using AM.Infra.CrossCutting;
 using AutoMapper;
 using AM.App.AutoMapper;
+using Newtonsoft.Json.Serialization;
 
 namespace AM.Service
 {
@@ -26,17 +27,20 @@ namespace AM.Service
         {
             services.AddAutoMapperSetup();
 
-            //services.AddAuthorization(options =>
-            //{
-            //  options.AddPolicy("CanWriteCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Write")));
-            //  options.AddPolicy("CanRemoveCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Remove")));
-            //});
-
             services.AddMvc(options =>
             {
                 options.OutputFormatters.Remove(new XmlDataContractSerializerOutputFormatter());
+                
                 options.UseCentralRoutePrefix(new RouteAttribute("api"));
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            }).AddJsonOptions(options =>
+            {
+                var resolver = options.SerializerSettings.ContractResolver;
+                if (resolver != null)
+                    resolver = new CamelCasePropertyNamesContractResolver();
+            })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddCors();
 
             // .NET Native DI Abstraction
             RegisterServices(services);
@@ -57,13 +61,12 @@ namespace AM.Service
 
             app.UseCors(c =>
             {
+                c.WithOrigins("http://localhost:4200");
                 c.AllowAnyHeader();
                 c.AllowAnyMethod();
-                c.AllowAnyOrigin();
             });
 
             app.UseHttpsRedirection();
-            app.UseAuthentication();
             app.UseMvc();
         }
 

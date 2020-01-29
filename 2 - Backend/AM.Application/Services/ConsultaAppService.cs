@@ -15,10 +15,11 @@ namespace AM.App.Services
         private readonly IConsultaRepository _consultaRepository;
         private ConsultaService _consultaService;
 
-        public ConsultaAppService(IMapper mapper, IConsultaRepository consultaRepository)
+        public ConsultaAppService(IMapper mapper, IConsultaRepository consultaRepository, ConsultaService consultaService)
         {
             _mapper = mapper;
             _consultaRepository = consultaRepository;
+            _consultaService = consultaService;
         }
 
         public IQueryable<ConsultaModel> GetAll()
@@ -38,8 +39,7 @@ namespace AM.App.Services
 
         public void Update(int id, ConsultaModel consultaModel)
         {
-            _consultaRepository.Update(id, _mapper.Map<ConsultaEntity>(consultaModel));
-            _consultaRepository.SaveChanges();
+            _consultaService.AtualizarConsulta(id, _mapper.Map<ConsultaEntity>(consultaModel));        
         }
 
         public void Remove(int id)

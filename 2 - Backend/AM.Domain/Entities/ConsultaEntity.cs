@@ -9,6 +9,6 @@ namespace AM.Domain.Entities
         public DateTime DataHoraFinal { get; set; }
         public string Observacoes { get; set; }
         public int IdPessoa { get; set; }
-        public PessoaEntity Paciente { get; set; }
+        public PessoaEntity Pessoa { get; set; }
     }
 }

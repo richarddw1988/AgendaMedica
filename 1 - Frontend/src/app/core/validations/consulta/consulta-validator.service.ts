@@ -23,10 +23,10 @@ export class ConsultaValidatorService implements IConsultaValidator {
     return validator
       .NotNull(m => m.dataHoraInicio, this.validatorMessage.required('Data hora início').value)
       .NotNull(m => m.dataHoraFinal, this.validatorMessage.required('Data hora final').value)
-      .NotNull(m => m.paciente, this.validatorMessage.required('Paciente').value)
-      .NotEmpty(m => m.paciente.nome, this.validatorMessage.required('Nome').value)
-      .Length(m => m.paciente.nome, 1, 200, this.validatorMessage.maximumSize('Nome', '200').value)
-      .NotNull(m => m.paciente.dataNascimento, this.validatorMessage.required('Data nascimento').value)
+      .NotNull(m => m.pessoa, this.validatorMessage.required('Paciente').value)
+      .NotEmpty(m => m.pessoa.nome, this.validatorMessage.required('Nome').value)
+      .Length(m => m.pessoa.nome, 1, 200, this.validatorMessage.maximumSize('Nome', '200').value)
+      .NotNull(m => m.pessoa.dataNascimento, this.validatorMessage.required('Data nascimento').value)
       .ToResult();
   }
 }

@@ -26,7 +26,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         console.log('Error', response.status);
         break;
       case 401:
-        this.router.navigateByUrl('/login', { replaceUrl: true });
+        this.router.navigateByUrl('/consulta-medica', { replaceUrl: true });
         break;
       case 404:
         errs.push(new ValidationError('', '', '<strong>404</strong>: O recurso requisitado não existe.'));

@@ -8,6 +8,13 @@ import { ConsultaMedicaComponent } from './consulta-medica.component';
 import {TableModule} from 'primeng/table';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
+import {CalendarModule} from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {FullCalendarModule} from 'primeng/fullcalendar';
+
+
 
 @NgModule({
   declarations: [ConsultaMedicaComponent],
@@ -19,6 +26,11 @@ import {ButtonModule} from 'primeng/button';
     TableModule,
     InputTextModule,
     ButtonModule,
+    DialogModule,
+    CalendarModule,
+    FormsModule,
+    InputTextareaModule,
+    FullCalendarModule
   ]
 })
 export class ConsultaMedicaModule { }

@@ -17,7 +17,7 @@ import { DataModule } from './data/data.module';
     CoreModule,
     DataModule,
     InfraModule,
-    PresentationModule
+    PresentationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

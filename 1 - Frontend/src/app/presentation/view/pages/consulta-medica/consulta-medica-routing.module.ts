@@ -13,6 +13,13 @@ const routes: Routes = [
       data: {
         title: 'Consulta Médica'
       }
+    },
+    {
+      path: 'consulta-medica-detalhe',
+      component: ConsultaMedicaComponent,
+      data: {
+        title: 'Consulta Médica Detalhe'
+      }
     }
   ])
 ];

@@ -1,5 +1,6 @@
 ﻿using AM.Domain.Entities;
 using System;
+using System.Linq;
 
 namespace AM.Domain.Interface.Repository
 {

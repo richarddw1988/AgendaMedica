@@ -16,3 +16,11 @@ table {
   }
 }
 
+::ng-deep  .ui-calendar .ui-datepicker {
+  min-width: 60%;
+}
+
+::ng-deep table.ui-datepicker-calendar tr td{
+  padding: 0;
+}
+

@@ -14,11 +14,11 @@ export class ConsultaControllerService implements IConsultaController {
     private consultaUseCase: IConsultaUseCase
   ) { }
 
-  insert(param: ConsultaModel) {
-    this.consultaUseCase.insert(param);
+  insert(param: ConsultaModel): Observable<any> {
+    return this.consultaUseCase.insert(param);
   }
-  update(id: number, param: ConsultaModel) {
-    this.consultaUseCase.update(id, param);
+  update(id: number, param: ConsultaModel): Observable<any> {
+    return this.consultaUseCase.update(id, param);
   }
   get(id: number): Observable<ConsultaModel> {
     return this.consultaUseCase.get(id);
@@ -26,7 +26,7 @@ export class ConsultaControllerService implements IConsultaController {
   getAll(): Observable<ConsultaModel[]> {
     return this.consultaUseCase.getAll();
   }
-  delete(id: number) {
+  delete(id: number): Observable<any> {
     return this.consultaUseCase.delete(id);
   }
 }

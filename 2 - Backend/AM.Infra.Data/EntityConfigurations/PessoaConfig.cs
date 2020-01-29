@@ -17,6 +17,8 @@ namespace AM.Infra.Data.EntityConfigurations
 
             builder.Property(x => x.DataNascimento)
                 .IsRequired();
+
+            builder.HasMany(x => x.Consultas).WithOne(x => x.Pessoa).HasForeignKey(x => x.IdPessoa);
         }
     }
 }

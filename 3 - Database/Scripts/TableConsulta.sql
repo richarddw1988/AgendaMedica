@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Consulta](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[DataHoraInicio] [datetime2](7) NOT NULL,
 	[DataHoraFinal] [datetime2](7) NOT NULL,
 	[Observacoes] [varchar](500) NULL,

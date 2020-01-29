@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Pessoa](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1)  NOT NULL,
 	[Nome] [varchar](200) NOT NULL,
 	[DataNascimento] [date] NOT NULL,
  CONSTRAINT [PK_Pessoa] PRIMARY KEY CLUSTERED 

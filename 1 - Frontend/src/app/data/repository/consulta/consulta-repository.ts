@@ -1,6 +1,6 @@
-import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+
 import { map } from 'rxjs/operators';
 
 import { ConsultaMapper } from './consulta-mapper';
@@ -8,54 +8,40 @@ import { IConsultaRepository } from 'src/app/core/interfaces/repository/iconsult
 import { ConsultaModel } from 'src/app/core/domain/entity/consulta-model';
 import { Injectable } from '@angular/core';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConsultaRepository implements IConsultaRepository {
 
-
   private mapper = new ConsultaMapper();
+
+  // Por algum motivo não está pegando o valor do environments, definido localhost na mão
 
   constructor(
     private http: HttpClient
   ) { }
 
   get(id: number): Observable<ConsultaModel> {
-    return this.http
-      .get<ConsultaModel>(environment.serverUrl + `/consulta/${id}`)
-      .pipe(map((item) => {
-        if (item[0]) {
-          return this.mapper.mapFrom(item[0]);
-        }
-        return null;
-      }));
+    return this.http.get<ConsultaModel>(`http://localhost:5000/api/consulta/${id}`);
   }
 
   getAll(): Observable<ConsultaModel[]> {
-    const objs: ConsultaModel[] = [];
-    this.http.get<ConsultaModel[]>(environment.serverUrl + `/consulta/getAll`)
-    .pipe(map((itens) => {
-      if (itens[0]) {
-        itens.forEach((item) => {
-          objs.push(this.mapper.mapFrom(item[0]));
-        });
-        return objs;
-      }
-      return null;
-    }));
-    return null;
+    return this.http.get<ConsultaModel[]>(`http://localhost:5000/api/consulta/getList`);
   }
 
-  insert(param: ConsultaModel) {
-    this.http.post(environment.serverUrl + `/consulta`, param);
+  insert(param: ConsultaModel): Observable<any>{
+    return this.http.post("http://localhost:5000/api/consulta", param);
   }
 
-  update(id: number, param: ConsultaModel) {
-    this.http.put(environment.serverUrl + `/consulta/${id}`, param);
+  update(id: number, param: ConsultaModel) : Observable<any> {
+    return this.http.put(`http://localhost:5000/api/consulta/${id}`, param);
   }
 
-  delete(id: number) {
-    this.http.delete(environment.serverUrl + `/consulta/${id}`);
+  delete(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:5000/api/consulta/${id}`);
   }
 }

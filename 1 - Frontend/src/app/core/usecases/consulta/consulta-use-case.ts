@@ -16,11 +16,11 @@ export class ConsultaUseCase implements IConsultaUseCase {
     private consultaValidator: IConsultaValidator
   ) { }
 
-  insert(param: ConsultaModel) {
+  insert(param: ConsultaModel): Observable<any> {
     const validator = this.consultaValidator.validateFields(param);
 
     if (validator.IsValid) {
-      this.consultaRepository.insert(param);
+      return this.consultaRepository.insert(param);
     } else {
       throwError(validator.Errors);
     }
@@ -34,15 +34,15 @@ export class ConsultaUseCase implements IConsultaUseCase {
     return this.consultaRepository.getAll();
   }
 
-  delete(id: number) {
-    this.consultaRepository.delete(id);
+  delete(id: number): Observable<any> {
+    return this.consultaRepository.delete(id);
   }
 
-  update(id: number, param: ConsultaModel) {
+  update(id: number, param: ConsultaModel): Observable<any> {
     const validator = this.consultaValidator.validateFields(param);
 
     if (validator.IsValid) {
-      this.consultaRepository.update(id, param);
+      return this.consultaRepository.update(id, param);
     } else {
       throwError(validator.Errors);
     }

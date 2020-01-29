@@ -9,6 +9,6 @@ namespace AM.App.ViewModel
         public DateTime DataHoraFinal { get; set; }
         public string Observacoes { get; set; }
         public int IdPessoa { get; set; }
-        public PessoaModel Paciente { get; set; }
+        public PessoaModel Pessoa { get; set; }
     }
 }
