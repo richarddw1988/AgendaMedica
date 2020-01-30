@@ -4,6 +4,7 @@ import { ConsultaControllerService } from 'src/app/presentation/controllers/cons
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import  * as moment from 'moment';
 
 
 @Component({
@@ -59,9 +60,11 @@ export class ConsultaMedicaDetalheComponent implements OnInit {
       nome: itemForm.nome,
       dataNascimento: itemForm.dataNascimento
     };
-
-    this.consulta.dataHoraInicio = itemForm.dataHoraInicio;
-    this.consulta.dataHoraFinal = itemForm.dataHoraFinal;
+    this.consulta.pessoa.dataNascimento.setHours(0, 0);
+    this.consulta.dataHoraInicio = moment(itemForm.dataHoraInicio).subtract(3, 'hour').toDate();
+    this.consulta.dataHoraFinal = moment(itemForm.dataHoraFinal).subtract(3, 'hour').toDate();
+    this.consulta.dataHoraInicio.setSeconds(0, 0);
+    this.consulta.dataHoraFinal.setSeconds(0, 0);
     this.consulta.observacoes = itemForm.observacoes;
 
     if (this.formType === 'insert') {
@@ -71,7 +74,11 @@ export class ConsultaMedicaDetalheComponent implements OnInit {
         this.messageService.add({severity: 'info', summary: 'Sucesso', detail: 'Operação efetuada com sucesso!'});
         this.router.navigate(['/consulta-medica']);
       }, error => {
-        this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível efetuar a operação. Tente novamente'});
+        if (error.status === 400) {
+          this.messageService.add({severity: 'error', summary: 'Erro', detail: error.error});
+        } else {
+          this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível efetuar a operação. Tente novamente'});
+        }
       });
     } else {
       this.consultaController.update(this.idConsulta, this.consulta)
@@ -80,7 +87,11 @@ export class ConsultaMedicaDetalheComponent implements OnInit {
         this.messageService.add({severity: 'info', summary: 'Sucesso', detail: 'Operação efetuada com sucesso!'});
         this.router.navigate(['/consulta-medica']);
       }, error => {
-        this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível efetuar a operação. Tente novamente'});
+        if (error.status === 400) {
+          this.messageService.add({severity: 'error', summary: 'Erro', detail: error.error});
+        } else {
+          this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível efetuar a operação. Tente novamente'});
+        }
       });
     }
   }

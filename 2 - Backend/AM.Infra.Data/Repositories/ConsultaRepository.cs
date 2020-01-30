@@ -23,9 +23,9 @@ namespace AM.Infra.Data.Repositories
             Remove(consultaEntity);
         }
 
-        public bool ExisteConsulta(DateTime dataHoraInicio, DateTime dataHoraFinal)
+        public bool ExisteConsulta(int idConsulta, DateTime dataHoraInicio, DateTime dataHoraFinal)
         {
-            return Db.Consulta.Where(c => c.DataHoraInicio >= dataHoraInicio && c.DataHoraFinal <= dataHoraFinal).Any();
+            return Db.Consulta.Where(c => c.Id != idConsulta && c.DataHoraInicio >= dataHoraInicio && c.DataHoraFinal <= dataHoraFinal).Any();
         }
 
         public ConsultaEntity GetConsultaPacienteById(int id)

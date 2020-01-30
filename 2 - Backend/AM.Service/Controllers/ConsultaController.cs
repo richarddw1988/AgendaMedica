@@ -71,7 +71,7 @@ namespace AM.Service.Controllers
             }
             catch (BusinessException ex)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, ex);
+                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace AM.Service.Controllers
             }
             catch (BusinessException ex)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, ex);
+                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
             }
             catch (Exception ex)
             {

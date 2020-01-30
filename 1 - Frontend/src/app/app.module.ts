@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { PresentationModule } from './presentation/presentation.module';
 import { CoreModule } from './core/core.module';
-import { InfraModule } from './infra/infra.module';
 import { DataModule } from './data/data.module';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { DataModule } from './data/data.module';
     BrowserAnimationsModule,
     CoreModule,
     DataModule,
-    InfraModule,
     PresentationModule,
   ],
   providers: [],

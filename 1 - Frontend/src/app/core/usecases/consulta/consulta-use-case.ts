@@ -1,8 +1,7 @@
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { IConsultaUseCase } from '../../interfaces/usecases/iconsulta-use-case';
 import { IConsultaRepository } from '../../interfaces/repository/iconsulta-repository';
-import { IConsultaValidator } from '../../interfaces/validations/iconsulta-validator';
 import { ConsultaModel } from '../../domain/entity/consulta-model';
 
 
@@ -13,17 +12,10 @@ export class ConsultaUseCase implements IConsultaUseCase {
 
   constructor(
     private consultaRepository: IConsultaRepository,
-    private consultaValidator: IConsultaValidator
   ) { }
 
   insert(param: ConsultaModel): Observable<any> {
-    const validator = this.consultaValidator.validateFields(param);
-
-    if (validator.IsValid) {
-      return this.consultaRepository.insert(param);
-    } else {
-      throwError(validator.Errors);
-    }
+    return this.consultaRepository.insert(param);
   }
 
   get(id: number): Observable<ConsultaModel> {
@@ -39,13 +31,7 @@ export class ConsultaUseCase implements IConsultaUseCase {
   }
 
   update(id: number, param: ConsultaModel): Observable<any> {
-    const validator = this.consultaValidator.validateFields(param);
-
-    if (validator.IsValid) {
-      return this.consultaRepository.update(id, param);
-    } else {
-      throwError(validator.Errors);
-    }
+    return this.consultaRepository.update(id, param);
   }
 }
 

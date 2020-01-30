@@ -10,13 +10,7 @@ import { MessageService } from 'primeng/api';
 })
 export class ConsultaMedicaComponent implements OnInit {
 
-  displayDialog: boolean;
-
   consulta: ConsultaModel = {};
-
-  selectedConsulta: ConsultaModel;
-
-  newConsulta: boolean;
 
   consultas: ConsultaModel[] = [];
 
@@ -31,7 +25,7 @@ export class ConsultaMedicaComponent implements OnInit {
     this.initialize();
   }
 
-  initialize(){
+  initialize() {
     this.consulta.pessoa = {
       nome: '',
       dataNascimento: null
@@ -40,32 +34,6 @@ export class ConsultaMedicaComponent implements OnInit {
     this.consultaController.getAll().subscribe(res => {
       this.consultas = res;
     });
-  }
-
-
-  save() {
-    const consultas = [...this.consultas];
-
-    if (this.newConsulta) {
-      this.consultaController.insert(this.consulta).subscribe(() => {
-        consultas.push(this.consulta);
-        this.consultas = consultas;
-        this.consulta = null;
-      },
-      error => {
-        this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível efetuar a operação. Tente novamente'});
-      });
-    } else {
-      this.consultaController.update(this.consulta.id, this.consulta)
-      .subscribe(() => {
-        consultas[this.consultas.indexOf(this.selectedConsulta)] = this.consulta;
-        this.consultas = consultas;
-        this.consulta = null;
-      },
-      error => {
-        this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível efetuar a operação. Tente novamente'});
-      });
-    }
   }
 
   delete(consulta) {

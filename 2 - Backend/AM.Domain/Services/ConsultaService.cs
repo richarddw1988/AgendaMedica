@@ -25,7 +25,14 @@ namespace AM.Domain.Services
 
         public void ValidarSalvar(ConsultaEntity consultaEntity)
         {
-            if(_consultaRepository.ExisteConsulta(consultaEntity.DataHoraInicio, consultaEntity.DataHoraFinal))
+            if(consultaEntity.DataHoraInicio > consultaEntity.DataHoraFinal)
+            {
+                throw new BusinessException("A data inicial da consulta não pode ser maior que a final.");
+            }
+
+            var exists = _consultaRepository.ExisteConsulta(consultaEntity.Id, consultaEntity.DataHoraInicio, consultaEntity.DataHoraFinal);
+
+            if (exists)
             {
                 throw new BusinessException("Já existe consulta marcada para a data e horário.");
             }
