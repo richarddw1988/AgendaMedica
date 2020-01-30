@@ -1,0 +1,76 @@
+<div class="container">
+  <p-toast [style]="{marginTop: '50px'}"></p-toast>
+  <form autocomplete="false" [formGroup]="consultaForm" (ngSubmit)="onSubmit(consultaForm.value)">
+     <div class="ui-g">
+          <div class="ui-g-12 ui-fluid">
+              <h1>Consulta Médica</h1>
+          </div>
+     </div>
+
+     <div class="ui-g">
+          <div class="ui-g-12 ui-fluid">
+              <p style="font-style:italic; font-size: 0.9em;">Os campos com o simbolo asterisco (*) são de preenchimento obrigatório</p>
+          </div>
+     </div>
+
+      <div class="ui-g">
+          <div class="ui-g-12 ui-lg-9 ui-md-12 ui-sm-12 ui-fluid">
+              <label>Nome*:</label>
+              <input type="text" pInputText formControlName="nome" maxlength="200" pattern="[a-zA-Z-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*"/>
+
+              <p-message
+                severity="error"
+                [text]="consultaForm.controls['nome'].errors['required'] ? 'Nome é obrigatório' : consultaForm.controls['nome'].errors['pattern'] ? 'Só é permitido letras para esse campo' : ''"
+                *ngIf="!consultaForm.controls['nome'].valid&&consultaForm.controls['nome'].dirty">
+              </p-message>
+          </div>
+
+          <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+            <label>Data de Nascimento *:</label>
+            <p-calendar formControlName="dataNascimento" dateFormat="dd/mm/yy" [readonlyInput]="false"></p-calendar>
+            <p-message
+              severity="error"
+              text="Data de Nascimento é obrigatória"
+              *ngIf="!consultaForm.controls['dataNascimento'].valid&&consultaForm.controls['dataNascimento'].dirty"></p-message>
+          </div>
+      </div>
+
+      <div class="ui-g">
+
+        <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+          <label>Data/Hora Inicio *:</label>
+          <p-calendar formControlName="dataHoraInicio" dateFormat="dd/mm/yy" showTime="showTime" hourFormat="24" [readonlyInput]="false"></p-calendar>
+          <p-message
+            severity="error"
+            text="Data/Hora Inicio é obrigatória"
+            *ngIf="!consultaForm.controls['dataHoraInicio'].valid&&consultaForm.controls['dataHoraInicio'].dirty"></p-message>
+        </div>
+
+        <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+          <label>Data/Hora Final *:</label>
+          <p-calendar formControlName="dataHoraFinal" dateFormat="dd/mm/yy" showTime="showTime" hourFormat="24" [readonlyInput]="false"></p-calendar>
+          <p-message
+            severity="error"
+            text="Data/Hora Final é obrigatória"
+            *ngIf="!consultaForm.controls['dataHoraFinal'].valid&&consultaForm.controls['dataHoraFinal'].dirty"></p-message>
+        </div>
+
+        <div class="ui-g">
+          <div class="ui-g-12 ui-lg-12 ui-md-6 ui-sm-12 ui-fluid">
+              <label>Observações:</label>
+              <input pInputText formControlName="observacoes" />
+          </div>
+      </div>
+
+      </div>
+
+
+
+      <div class="ui-g">
+          <div class="ui-g-12">
+              <button pButton type="submit" style="margin-right: 10px" [disabled]="formInvalid()" label="Salvar" class="ui-button-info"></button>
+              <button pButton type="button" routerLink="/consulta-medica" label="Cancelar" class="ui-button-secondary"></button>
+          </div>
+      </div>
+  </form>
+</div>

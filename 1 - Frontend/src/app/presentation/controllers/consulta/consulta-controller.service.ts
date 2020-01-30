@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { IConsultaController } from 'src/app/core/interfaces/controllers/Iconsulta-controller';
+import { IConsultaController } from 'src/app/core/interfaces/controllers/iconsulta-controller';
 import { IConsultaUseCase } from 'src/app/core/interfaces/usecases/iconsulta-use-case';
 import { ConsultaModel } from 'src/app/core/domain/entity/consulta-model';
 

@@ -29,7 +29,10 @@ namespace AM.App.Services
 
         public ConsultaModel GetById(int id)
         {
-            return _mapper.Map<ConsultaModel>(_consultaRepository.GetById(id));
+            var consulta = _mapper.Map<ConsultaModel>(_consultaRepository.GetConsultaPacienteById(id));
+            //O automapper não estava ignorando a lista de jeito nenhum
+            consulta.Pessoa.Consultas = null;
+            return consulta;
         }
 
         public void Insert(ConsultaModel consultaModel)
@@ -44,8 +47,7 @@ namespace AM.App.Services
 
         public void Remove(int id)
         {
-            var obj = _consultaRepository.GetById(id);
-            _consultaRepository.Remove(obj);
+            _consultaRepository.DeleteConsultaPacienteById(id);
             _consultaRepository.SaveChanges();
         }
 

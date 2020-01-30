@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { RouteService } from '../route.service';
 import { ConsultaMedicaComponent } from './consulta-medica.component';
+import { ConsultaMedicaDetalheComponent } from './consulta-medica-detalhe/consulta-medica-detalhe.component';
 
 const routes: Routes = [
   RouteService.withShell([
@@ -16,8 +17,17 @@ const routes: Routes = [
     },
     {
       path: 'consulta-medica-detalhe',
-      component: ConsultaMedicaComponent,
+      component: ConsultaMedicaDetalheComponent,
       data: {
+        formType: 'insert',
+        title: 'Consulta Médica Detalhe'
+      }
+    },
+    {
+      path: 'consulta-medica-detalhe/:id',
+      component: ConsultaMedicaDetalheComponent,
+      data: {
+        formType: 'update',
         title: 'Consulta Médica Detalhe'
       }
     }

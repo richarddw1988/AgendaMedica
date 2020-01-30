@@ -1,101 +1,46 @@
 
 <div class="container mt-4 mb-4">
 
-  <div class="mb-4 mt-5">
-    <ng-container>
-      <div class="row">
-        <div class="col-4">
-          <span class="ui-float-label">
-            <input id="float-input" type="text" size="30" pInputText>
-            <label for="float-input">Nome</label>
-          </span>
-        </div>
-      </div>
-    </ng-container>
+  <ng-container>
 
-  </div>
-
-<ng-container>
-
-  <div class="row justify-content-end m-0 mb-4">
-    <p-button class="ml-2" label="Filtrar" ></p-button>
-  </div>
-
-  <p-table [columns]="cols" [value]="consultas" selectionMode="single" [(selection)]="selectedConsulta" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+  <p-table [columns]="cols" [value]="consultas" [paginator]="true" [rows]="15">
     <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let col of columns">
-                {{col.header}}
-            </th>
+        <tr class="text-center">
+          <th>Data hora início</th>
+          <th>Data hora final</th>
+          <th>Nome</th>
+          <th class="col-btns"></th>
         </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-rowData>
         <tr [pSelectableRow]="rowData">
-            <td *ngFor="let col of cols">
-                {{rowData[col.field]}}
+
+            <td>{{rowData.dataHoraInicio | date: 'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{rowData.dataHoraFinal | date: 'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{rowData.pessoa.nome | uppercase }}</td>
+            <td class="col-content-btns">
+              <p-button class="btn-editar" icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/consulta-medica-detalhe', rowData.id]" tooltipPosition="bottom"></p-button>
+              <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="bottom" (onClick)="delete(rowData)"></p-button>
             </td>
         </tr>
     </ng-template>
 
+    <ng-template pTemplate="emptymessage">
+      <tr class="text-center">
+        <td colspan="4">
+          Nenhum registro encrontado.
+        </td>
+    </tr>
+    </ng-template>
+
     <ng-template pTemplate="summary" let-rowData>
         <div style="text-align:left">
-            <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+            <button type="button" pButton [routerLink]="['/consulta-medica-detalhe']" label="Adicionar"></button>
         </div>
     </ng-template>
 
 </p-table>
-
-<p-dialog header="Detalhes do Paciente" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '800px'}" >
-    <div class="ui-g ui-fluid mb-2" *ngIf="consulta">
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="dataHorainicio">Data hora inicio</label>
-            </div>
-            <div class="ui-g-8">
-                <p-calendar [locale]="calendarLocaleBR" dateFormat="yy-mm-ddT00:00" id="dataHoraInicio" [showTime]="true" [hourFormat]="24" [(ngModel)]="consulta.dataHoraInicio"> </p-calendar>
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="dataHoraFinal">Data hora final</label>
-            </div>
-            <div class="ui-g-8">
-                <p-calendar id="dataHoraFinal" [locale]="calendarLocaleBR" dateFormat="yy-mm-ddT00:00" [showTime]="true" [hourFormat]="24" [(ngModel)]="consulta.dataHoraFinal"> </p-calendar>
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="nome">Nome</label>
-            </div>
-            <div class="ui-g-8">
-                <input pInputText id="nome" [(ngModel)]="consulta.pessoa.nome"/>
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="dataNascimento">Data nascimento</label>
-            </div>
-            <div class="ui-g-8">
-                <p-calendar id="dataNascimento" [locale]="calendarLocaleBR" dateFormat="yy-mm-ddT00:00" [showTime]="true" [hourFormat]="24" [(ngModel)]="consulta.pessoa.dataNascimento"> </p-calendar>
-            </div>
-        </div>
-        <div class="ui-g-12">
-          <div class="ui-g-4">
-              <label for="observacoes">Observações</label>
-          </div>
-          <div class="ui-g-8">
-              <textarea [rows]="5" id="observacoes" [cols]="67" pInputTextarea autoResize="autoResize" [(ngModel)]="consulta.observacoes"></textarea>
-          </div>
-      </div>
-    </div>
-    <p-footer>
-        <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="fas fa-close" (click)="delete()" label="Delete"></button>
-            <button type="button" pButton icon="fas fa-check" (click)="save()" label="Save"></button>
-        </div>
-    </p-footer>
-</p-dialog>
 </ng-container>
 
 </div>

@@ -32,14 +32,14 @@ namespace AM.UnitTests
             {
                 DataHoraInicio = new DateTime(2020, 01, 01, 1, 0, 0),
                 DataHoraFinal = new DateTime(2020, 01, 01, 1, 30, 0),
-                Paciente = new PessoaModel()
+                Pessoa = new PessoaModel()
                 {
                     DataNascimento = new DateTime(1988, 06, 05),
                     Nome = "Richardd Nunes Mattos"
                 }
             };
 
-            var json = JsonConvert.SerializeObject(consultaModel1.Paciente);
+            var json = JsonConvert.SerializeObject(consultaModel1.Pessoa);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             // Arrange
@@ -58,7 +58,7 @@ namespace AM.UnitTests
             {
                 DataHoraInicio = new DateTime(2020, 01, 01, 1, 0, 0),
                 DataHoraFinal = new DateTime(2020, 01, 01, 1, 30, 0),
-                Paciente = new PessoaModel()
+                Pessoa = new PessoaModel()
                 {
                     DataNascimento = new DateTime(1988, 06, 05),
                     Nome = "João Batista"

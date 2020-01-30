@@ -34,7 +34,8 @@ namespace AM.Domain.Services
         public void AtualizarConsulta(int id, ConsultaEntity consultaEntity)
         {
             ValidarSalvar(consultaEntity);
-            _consultaRepository.Update(id, consultaEntity);
+
+            _consultaRepository.AtualizarConsultaPacienteById(id, consultaEntity);
             _consultaRepository.SaveChanges();
         }
     }
